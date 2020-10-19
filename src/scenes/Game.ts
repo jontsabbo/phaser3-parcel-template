@@ -1,22 +1,28 @@
 import Phaser from 'phaser'
 
+import SceneKeys from '../consts/SceneKeys'
+import TextureKeys from '../consts/TextureKeys'
+import AnimationKeys from '../consts/AnimationKeys'
+
 /**
  * 
  * @param {Phaser.Scene} scene 
- * @param {number} count 
+ * @param {number} totalWidth
  * @param {string} texture 
  * @param {number} scrollFactor 
- *  @param {number} scale 
  */
 
-const createLooped = (scene, count, texture, scrollFactor, scale) => {
+const createLooped = (scene, totalWidth, texture, scrollFactor) => {
+
+    const loopCount = scene.textures.get(texture).getSourceImage().width
+    const count = Math.ceil(totalWidth / loopCount) 
+
     let x = 0
     for (let i = 0; i < count; ++i) {
         const m = scene.add.image(x, scene.scale.height, texture)
         .setOrigin(0, 1)
-        .setScale(scale)
         .setScrollFactor(scrollFactor)
-        x += m.width * scale
+        x +=  m.width
     }
 } 
 
@@ -24,48 +30,67 @@ export default class Game extends Phaser.Scene
 {
     constructor()
     {
-        super('game')
+        super(SceneKeys.Game)
     }
-    preload()
-    {
-        this.load.image('sky', 'assets/sky.png')
-        this.load.image('mountains', 'assets/mountains.png')
-        this.load.image('plateau', 'assets/plateau.png')
-        this.load.image('ground', 'assets/ground.png')
-        this.load.image('plants', 'assets/plant.png')
-        this.load.image('rethmans', 'assets/rethmans.png')
-
-        this.cursors = this.input.keyboard.createCursorKeys()
-
-    }
+    
     create()
     {
+
+        this.anims.create({
+            key: AnimationKeys.Rethmans,
+            frames: this.anims.generateFrameNames(AnimationKeys.Rethmans, {
+                start: 0,
+                end: 4,
+                prefix: AnimationKeys.Rethmans + '-idle-',
+                zeroPad: 2,
+                suffix: '.png'
+            }),
+            frameRate: 3,
+            repeat: -1
+        })
+
         const width = this.scale.width
         const height = this.scale.height
+        const totalWidth = width * 3
 
-        this.add.image(width * .5, height * .5, 'sky')
-       .setScrollFactor(0)
+        this.add.image(width * .5, height * .5, TextureKeys.Background)
+            .setScrollFactor(0)
+            .setOrigin(.5,.5)
+        
+        createLooped(this, totalWidth, TextureKeys.Mountains, .25)
+        createLooped(this, totalWidth, TextureKeys.Plateau, .5)
+        createLooped(this, totalWidth, TextureKeys.Ground, 1)
+        createLooped(this, totalWidth, TextureKeys.Plants, 1.25)
 
-        createLooped(this, 2, 'mountains', .25, .45)
-        createLooped(this, 3, 'plateau', .5, .45)
-        createLooped(this, 3, 'ground', 1, .5)
+        this.cameras.main.setBounds(0, 0, totalWidth, height )
+        
+        const player = this.physics.add.sprite(
+            width * 0.3,
+            height * 0,
+            TextureKeys.Rethmans,
+            )
+        .play(AnimationKeys.Rethmans)
+        const body = player.body as Phaser.Physics.Arcade.Body
+        body.setCollideWorldBounds(true)
+        body.bounce.set(.23)
 
-       this.add.image(30, height - 60, 'rethmans')
-       .setOrigin(0,1)
-       .setScale(.6)
-
-       createLooped(this, 3, 'plants', 1.25, .6)
-
-       this.cameras.main.setBounds(0, 0, width * 3, height )
+        this.physics.world.setBounds(
+            0, 0,
+            Number.MAX_SAFE_INTEGER, height -60   
+        )
     }
     update() {
-
+        
+        this.cursors = this.input.keyboard.createCursorKeys()
+        
         const cam = this.cameras.main
         const speed = 3;
+        
         if (this.cursors.left.isDown)
         {
             // Move Left
             cam.scrollX -= speed
+           
         }
         else if (this.cursors.right.isDown)
         {

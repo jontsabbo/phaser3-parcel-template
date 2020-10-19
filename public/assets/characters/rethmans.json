@@ -1,0 +1,125 @@
+{
+	"textures": [
+		{
+			"image": "rethmans.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 380,
+				"h": 112
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "rethmans-idle-00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 120
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 74,
+						"h": 110
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 74,
+						"h": 110
+					}
+				},
+				{
+					"filename": "rethmans-idle-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 120
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 74,
+						"h": 110
+					},
+					"frame": {
+						"x": 77,
+						"y": 1,
+						"w": 74,
+						"h": 110
+					}
+				},
+				{
+					"filename": "rethmans-idle-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 120
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 74,
+						"h": 110
+					},
+					"frame": {
+						"x": 153,
+						"y": 1,
+						"w": 74,
+						"h": 110
+					}
+				},
+				{
+					"filename": "rethmans-idle-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 120
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 74,
+						"h": 110
+					},
+					"frame": {
+						"x": 229,
+						"y": 1,
+						"w": 74,
+						"h": 110
+					}
+				},
+				{
+					"filename": "rethmans-idle-04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 120
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 74,
+						"h": 110
+					},
+					"frame": {
+						"x": 305,
+						"y": 1,
+						"w": 74,
+						"h": 110
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:656ac9a53c890e13cd55f0a63edecdf7:fadca3236e3f3e2df235b364189fcfe9:04feefdf386fdebb37e729e7d6947bcf$"
+	}
+}
