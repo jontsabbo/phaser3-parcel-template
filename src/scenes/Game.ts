@@ -3,6 +3,8 @@ import Phaser from 'phaser'
 import SceneKeys from '../consts/SceneKeys'
 import TextureKeys from '../consts/TextureKeys'
 import AnimationKeys from '../consts/AnimationKeys'
+import ItemKeys from '../consts/ItemKeys'
+
 
 /**
  * 
@@ -35,20 +37,6 @@ export default class Game extends Phaser.Scene
     
     create()
     {
-
-        this.anims.create({
-            key: AnimationKeys.Rethmans,
-            frames: this.anims.generateFrameNames(AnimationKeys.Rethmans, {
-                start: 0,
-                end: 4,
-                prefix: AnimationKeys.Rethmans + '-idle-',
-                zeroPad: 2,
-                suffix: '.png'
-            }),
-            frameRate: 3,
-            repeat: -1
-        })
-
         const width = this.scale.width
         const height = this.scale.height
         const totalWidth = width * 3
@@ -60,42 +48,85 @@ export default class Game extends Phaser.Scene
         createLooped(this, totalWidth, TextureKeys.Mountains, .25)
         createLooped(this, totalWidth, TextureKeys.Plateau, .5)
         createLooped(this, totalWidth, TextureKeys.Ground, 1)
+        // Create Player 
+        this.player = this.createPlayer()
+        // Create Items in Scene
+        this.box = this.createItems()
+       
         createLooped(this, totalWidth, TextureKeys.Plants, 1.25)
-
         this.cameras.main.setBounds(0, 0, totalWidth, height )
-        
-        const player = this.physics.add.sprite(
-            width * 0.3,
-            height * 0,
-            TextureKeys.Rethmans,
-            )
-        .play(AnimationKeys.Rethmans)
+        this.physics.world.setBounds(
+            0, 0, totalWidth, height -60   
+        )
+       
+        this.cursors = this.input.keyboard.createCursorKeys()
+        this.physics.add.collider(this.player, this.box);
+
+        console.log(this.player)
+        console.log(this.box)
+
+    }
+
+    createPlayer()
+    {
+        // Player Animation
+        this.anims.create({
+            key: AnimationKeys.RethmansIdle,
+            frames: this.anims.generateFrameNames(AnimationKeys.RethmansIdle, {
+                start: 0,
+                end: 5,
+                prefix: AnimationKeys.RethmansIdle + '-Idle-',
+                zeroPad: 2,
+                suffix: '.png'
+            }),
+            frameRate: 3,
+            repeat: -1
+        })
+        // Place Player & Set Physics
+        const player = this.physics.add.sprite(100, 0, TextureKeys.Rethmans)
+        .play(AnimationKeys.RethmansIdle)
         const body = player.body as Phaser.Physics.Arcade.Body
         body.setCollideWorldBounds(true)
-        body.bounce.set(.23)
+        body.bounce.set(.3)
 
-        this.physics.world.setBounds(
-            0, 0,
-            Number.MAX_SAFE_INTEGER, height -60   
-        )
+        return player
+
+    }
+    createItems()
+    {
+        // Add box to scene
+        const box = this.physics.add.sprite(500, 0, ItemKeys.Park, 'Crate.png')
+        const body = box.body as Phaser.Physics.Arcade.Body
+        body.setCollideWorldBounds(true)
+        body.bounce.set(.1)
+        // body.setImmovable(true)
+        
+        return box
     }
     update() {
-        
-        this.cursors = this.input.keyboard.createCursorKeys()
-        
-        const cam = this.cameras.main
-        const speed = 3;
-        
+        this.cameras.main.startFollow(this.player)
+       
         if (this.cursors.left.isDown)
-        {
-            // Move Left
-            cam.scrollX -= speed
-           
-        }
+		{
+            this.player.setVelocityX(-160)
+			// this.player.anims.play(AnimationKeys.RethmansIdle, true)
+		}
         else if (this.cursors.right.isDown)
         {
-            // Move Right
-            cam.scrollX += speed
+            this.player.setVelocityX(160)
+
+            // this.player.anims.play(AnimationKeys.RethmansIdle, true)
+        }
+        else if (this.cursors.down.isDown)
+        {
+            this.player.setVelocityX(0)
+
+            this.player.anims.play(AnimationKeys.RethmansIdle)
+        }
+
+        else if (this.cursors.up.isDown)
+        {
+            this.player.setVelocityY(-380)
         }
     }
 }

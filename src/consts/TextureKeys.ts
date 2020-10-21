@@ -5,7 +5,7 @@ enum TextureKeys
     Plateau = 'plateau',
     Ground = 'ground',
     Plants = 'plants',
-    Rethmans = 'rethmans'
+    Rethmans = 'Rethmans'
 }
 
 export default TextureKeys

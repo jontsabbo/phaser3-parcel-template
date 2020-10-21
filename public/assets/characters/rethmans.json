@@ -4,114 +4,135 @@
 			"image": "rethmans.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 380,
-				"h": 112
+				"w": 430,
+				"h": 126
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "rethmans-idle-00.png",
+					"filename": "Rethmans-Idle-00.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 80,
-						"h": 120
+						"w": 92,
+						"h": 130
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 74,
-						"h": 110
+						"x": 4,
+						"y": 6,
+						"w": 84,
+						"h": 124
 					},
 					"frame": {
 						"x": 1,
 						"y": 1,
-						"w": 74,
-						"h": 110
+						"w": 84,
+						"h": 124
 					}
 				},
 				{
-					"filename": "rethmans-idle-01.png",
+					"filename": "Rethmans-Idle-04.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 80,
-						"h": 120
+						"w": 92,
+						"h": 130
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 74,
-						"h": 110
+						"x": 4,
+						"y": 6,
+						"w": 84,
+						"h": 124
 					},
 					"frame": {
-						"x": 77,
+						"x": 1,
 						"y": 1,
-						"w": 74,
-						"h": 110
+						"w": 84,
+						"h": 124
 					}
 				},
 				{
-					"filename": "rethmans-idle-02.png",
+					"filename": "Rethmans-Idle-01.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 80,
-						"h": 120
+						"w": 92,
+						"h": 130
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 74,
-						"h": 110
+						"x": 4,
+						"y": 6,
+						"w": 84,
+						"h": 124
 					},
 					"frame": {
-						"x": 153,
+						"x": 87,
 						"y": 1,
-						"w": 74,
-						"h": 110
+						"w": 84,
+						"h": 124
 					}
 				},
 				{
-					"filename": "rethmans-idle-03.png",
+					"filename": "Rethmans-Idle-02.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 80,
-						"h": 120
+						"w": 92,
+						"h": 130
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 74,
-						"h": 110
+						"x": 4,
+						"y": 6,
+						"w": 84,
+						"h": 124
 					},
 					"frame": {
-						"x": 229,
+						"x": 173,
 						"y": 1,
-						"w": 74,
-						"h": 110
+						"w": 84,
+						"h": 124
 					}
 				},
 				{
-					"filename": "rethmans-idle-04.png",
+					"filename": "Rethmans-Idle-03.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 80,
-						"h": 120
+						"w": 92,
+						"h": 130
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 74,
-						"h": 110
+						"x": 4,
+						"y": 6,
+						"w": 84,
+						"h": 124
 					},
 					"frame": {
-						"x": 305,
+						"x": 259,
 						"y": 1,
-						"w": 74,
-						"h": 110
+						"w": 84,
+						"h": 124
+					}
+				},
+				{
+					"filename": "Rethmans-Idle-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 92,
+						"h": 130
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 6,
+						"w": 84,
+						"h": 124
+					},
+					"frame": {
+						"x": 345,
+						"y": 1,
+						"w": 84,
+						"h": 124
 					}
 				}
 			]
@@ -120,6 +141,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:656ac9a53c890e13cd55f0a63edecdf7:fadca3236e3f3e2df235b364189fcfe9:04feefdf386fdebb37e729e7d6947bcf$"
+		"smartupdate": "$TexturePacker:SmartUpdate:44bb9535050b241b718227e0cb475199:3b73dfd7f6460e03af22ce17710c82b5:04feefdf386fdebb37e729e7d6947bcf$"
 	}
 }

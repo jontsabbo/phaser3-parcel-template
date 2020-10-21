@@ -1,4 +1,4 @@
 enum AnimationKeys {
-    Rethmans = 'rethmans'
+    RethmansIdle = 'Rethmans'
 }
 export default AnimationKeys

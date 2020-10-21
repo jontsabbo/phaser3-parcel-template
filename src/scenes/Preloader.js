@@ -2,6 +2,7 @@ import Phaser from 'phaser'
 
 import TextureKeys from '../consts/TextureKeys'
 import SceneKeys from '../consts/SceneKeys'
+import ItemKeys from '../consts/ItemKeys'
 
 export default class Preloader extends Phaser.Scene
 {
@@ -11,6 +12,7 @@ export default class Preloader extends Phaser.Scene
     }
     preload()
     {
+
         this.load.image(
             TextureKeys.Background, 'assets/sky.png')
         this.load.image(
@@ -26,9 +28,15 @@ export default class Preloader extends Phaser.Scene
             'assets/characters/rethmans.png',
             'assets/characters/rethmans.json'
         )
+        this.load.atlas(
+            ItemKeys.Park,
+            'assets/worlds/park/park.png',
+            'assets/worlds/park/park.json',
+        )
     }
     create()
     {
         this.scene.start(SceneKeys.Game)
+        console.log('Assets Loaded')
     }
 }
