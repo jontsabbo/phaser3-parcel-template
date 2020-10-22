@@ -95,11 +95,11 @@ export default class Game extends Phaser.Scene
     createItems()
     {
         // Add box to scene
-        const box = this.physics.add.sprite(500, 0, ItemKeys.Park, 'Crate.png')
+        const box = this.physics.add.sprite(500, 0, ItemKeys.Park, 'Mushroom.png')
         const body = box.body as Phaser.Physics.Arcade.Body
         body.setCollideWorldBounds(true)
         body.bounce.set(.1)
-        // body.setImmovable(true)
+        body.setImmovable(true)
         
         return box
     }
