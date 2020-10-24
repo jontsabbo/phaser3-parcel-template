@@ -11,7 +11,7 @@ const config = {
 		default: 'arcade',
 		arcade: {
 			gravity: { y: 1050 },
-			debug: false
+			debug: true
 		}
 	},
 	scene: [Preloader, Game]
