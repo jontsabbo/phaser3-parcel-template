@@ -56,7 +56,7 @@ export default class Game extends Phaser.Scene
         createLooped(this, totalWidth, TextureKeys.Plants, 1.25)
         this.cameras.main.setBounds(0, 0, totalWidth, height )
         this.physics.world.setBounds(
-            0, 0, totalWidth, height -60   
+            0, 0, totalWidth, height -63   
         )
        
         this.cursors = this.input.keyboard.createCursorKeys()
